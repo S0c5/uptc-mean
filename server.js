@@ -6,10 +6,15 @@ var cors    = require('cors'); // npm install --save cors
 var bodyParser = require('body-parser');
 var proces
 var nombres = [];
+var apellidos = [];
 // GET /nombres
 
 app.use('*', bodyParser.json());
 app.use('*', cors()); // { Access-control-origin: '*'}
+
+app.get('/apellidos', function(req, res){
+  res.json(apellidos);
+});
 
 app.post('/nombres', function(req, res){
   console.log('mis datos en el cuerpo(body) ' , req.body);
