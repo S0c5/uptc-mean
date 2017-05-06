@@ -9,9 +9,9 @@ WORKDIR     /usr/src/app
 # Install app dependencies
 ADD         package.json                /usr/src/app/
 RUN         npm install
-ENV         PORT                        8080
+ENV         PORT                        3000
 
 # Bundle app source
 ADD         .                           /usr/src/app
-EXPOSE      8080
+EXPOSE      3000
 CMD         [ "npm", "start"]

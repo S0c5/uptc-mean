@@ -2,8 +2,5 @@ version: '2'
 services:
   uptc:
     image: uptc-mean
-    mem_limit: 499999999
-    environment:
-      - PORT=8080
     ports:
-      - 8080:8080
+      - 3000:3000

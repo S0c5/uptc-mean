@@ -26,6 +26,6 @@ app.get('/nombres', function(req, res){
 });
 
 
-app.listen(process.env.PORT || 3000, function(){
-  console.log('[+] listen port:'  + process.env.PORT || 3000);
+app.listen(3000, function(){
+  console.log('[+] listen port: 3000');
 });
