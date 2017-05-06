@@ -1,0 +1,30 @@
+<html ng-app="uptc" ng-controller="ctrl">
+  <head>
+    <title>Angular APP</title>
+  </head>
+  <body>
+
+    <h1>Practica </h1>
+
+    <ul>
+      <li ng-repeat="n in nombres">
+        {{n.toLowerCase()}}
+      </li>
+    </ul>
+
+    <input ng-model="name" type="text">
+    <button ng-click="agregar()">agregar nombre</button>
+    <!--
+      APP SCRIPT
+    !-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+
+    <script type="text/javascript" src="app.js">
+    </script>
+    <!--
+      ANGULAR DEPENDENCY
+    !-->
+
+  </body>
+</html>

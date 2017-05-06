@@ -1,0 +1,26 @@
+{
+  "name": "angular-app-socketio",
+  "version": "0.0.1",
+  "description": "super app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/uptc-mean/simple-angular-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/uptc-mean/simple-angular-app/issues"
+  },
+  "homepage": "https://gitlab.com/uptc-mean/simple-angular-app#README",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.3",
+    "express": "^4.15.2",
+    "socket.io": "^1.7.3"
+  }
+}
