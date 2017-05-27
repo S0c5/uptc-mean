@@ -8,7 +8,9 @@
 
     <ul>
       <li ng-repeat="n in nombres">
-        {{n.toLowerCase()}}
+        <input type="text" name="" value="" ng-model="n.name">
+        <a href ng-click="actualizar(n._id, n)">Actualizar</a>
+        <a href ng-click="eliminarMascota(n._id)">Eliminar</a>
       </li>
     </ul>
 

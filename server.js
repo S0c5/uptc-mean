@@ -2,32 +2,67 @@
 
 var express = require('express');
 var app     = express();
-var cors    = require('cors'); // npm install --save cors
+var cors    = require('cors');
 var bodyParser = require('body-parser');
-var proces
-var nombres = [];
-var apellidos = [];
-// GET /nombres
+var mongoose = require('mongoose');
 
-app.use('*', bodyParser.json());
-app.use('*', cors()); // { Access-control-origin: '*'}
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/animales'); // conectar a la base de datos
 
-app.get('/apellidos', function(req, res){
-  res.json(apellidos);
+
+var mascotaSchema = new mongoose.Schema({
+  name: String,
+  owner: String,
+  yearsOld: Number
 });
 
-app.post('/nombres', function(req, res){
-  console.log('mis datos en el cuerpo(body) ' , req.body);
-  var nombre = req.body.name;
+var Mascota = mongoose.model('mascota', mascotaSchema);
 
-  nombres.push(nombre)
-  res.json(
-      nombres
-  );
-})
+app.use('*', bodyParser.json());
+app.use('*', cors());
 
-app.get('/nombres', function(req, res){
-  res.json(nombres);
+// localhost:300/mascotas
+
+app.get('/mascotas', (req, res) => {
+    Mascota.find({})
+    .then((data) => {
+      console.log(data);
+      res.status(200);
+      res.json(data);
+    })
+});
+
+
+app.post('/mascotas', (req, res) => {
+    var mascotaNueva = new Mascota(req.body);
+    console.log(req.body);
+    mascotaNueva.save()
+    .then((data) => {
+      console.log(data);
+      res.status(200);
+      res.json(data);
+    })
+});
+
+app.delete('/mascotas/:id', (req, res) => {
+  console.log('aqui se va a eliminar a la mascota ' + req.params.id);
+  Mascota.remove({_id: req.params.id})
+  .then((data) => {
+    res.status(200);
+    res.json(data);
+  }).catch(err => {
+    console.log(err);
+    console.log(err.stack);
+  });
+});
+
+
+app.put('/mascotas/:id', (req, res)=> {
+  Mascota.update({_id: req.params.id}, {$set: req.body})
+  .then(data => {
+    res.status(200);
+    res.json(data);
+  })
 });
 
 

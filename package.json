@@ -18,9 +18,11 @@
   },
   "homepage": "https://gitlab.com/uptc-mean/simple-angular-app#README",
   "dependencies": {
-    "body-parser": "^1.17.1",
+    "body-parser": "^1.17.2",
     "cors": "^2.8.3",
-    "express": "^4.15.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.10.3",
+    "q": "^1.5.0",
     "socket.io": "^1.7.3"
   }
 }
